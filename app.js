@@ -8,16 +8,20 @@ async function main() {
 	try {
 		// Verification database and install database
 		await connectDB();
-
 		const app = express();
+		app.get('/', ((req, res) => res.json({message: 'Wellcom to parking system.', status: true})));
+
 		app.use(bodyParser.json())
 		app.use(bodyParser.urlencoded({ extended: true }));
 
 		const systemInstallRoutes = require('./routes/systemInstallRoutes');
+		const locationsRoutes = require('./routes/locationsRoutes');
 		const parkingRoutes = require('./routes/parkingRoutes');
 		
 		app.use('/install', systemInstallRoutes);
 		app.use('/parking', parkingRoutes);
+		app.use('/locations', locationsRoutes);
+
 
 		app.listen(port, () => {
 			console.log(`Parking system listening on port ${port}`);

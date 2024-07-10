@@ -1,5 +1,5 @@
 const express = require('express');
-const systemInstall = require('../controllers/systemInstallation/index.js');
+const systemInstall = require('../controllers/systemInstallationController/index');
 const router = express.Router();
 
 router.get('/', systemInstall.install);
