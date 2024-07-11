@@ -9,23 +9,31 @@ async function main() {
 		// Verification database and install database
 		await connectDB();
 		const app = express();
-		app.get('/', ((req, res) => res.json({message: 'Wellcom to parking system.', status: true})));
 
+		const logUrlMiddleware = (req, res, next) => {
+			console.log(`${req.method}: ${req.url}`);
+			next();
+		};
+		
+		app.use(logUrlMiddleware);
+
+		app.get('/', ((req, res) => res.json({message: 'Wellcom to parking system.', status: true})));
 		app.use(bodyParser.json())
 		app.use(bodyParser.urlencoded({ extended: true }));
 
-		const systemInstallRoutes  = require('./routes/systemInstallRoutes' );
-		const parkingRoutes        = require('./routes/parkingRoutes'       );
-		const locationsRoutes      = require('./routes/locationsRoutes'     );
-		const parkingPackageRoutes = require('./routes/parkingPackageRoutes');
-		const userRoutes           = require('./routes/userRoutes'          );
-		
-		app.use('/install'        , systemInstallRoutes  );
-		app.use('/parking'        , parkingRoutes        );
-		app.use('/locations'      , locationsRoutes      );
-		app.use('/parkingPackage' , parkingPackageRoutes );
-		app.use('/users'           , userRoutes           );
+		const systemInstallRoutes  = require('./routes/systemInstallRoutes'  );
+		const parkingRoutes        = require('./routes/parkingRoutes'        );
+		const locationsRoutes      = require('./routes/locationsRoutes'      );
+		const parkingPackageRoutes = require('./routes/parkingPackageRoutes' );
+		const userRoutes           = require('./routes/userRoutes'           );
+		const eventParkingRoutes   = require('./routes/eventParkingRoutes'   );
 
+		app.use('/install'       , systemInstallRoutes );
+		app.use('/parking'       , parkingRoutes       );
+		app.use('/locations'     , locationsRoutes     );
+		app.use('/parkingPackage', parkingPackageRoutes);
+		app.use('/users'         , userRoutes          );
+		app.use('/eventParking'  , eventParkingRoutes  );
 
 		app.listen(port, () => {
 			console.log(`Parking system listening on port ${port}`);
