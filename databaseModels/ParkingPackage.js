@@ -9,5 +9,5 @@ const ParkingPackageSchema = new mongoose.Schema({
 	deleted: { type: Boolean, default: false},
 });
 
-const ParkingPackage = mongoose.model('Parking', ParkingPackageSchema);
+const ParkingPackage = mongoose.model('ParkingPackage', ParkingPackageSchema);
 module.exports = ParkingPackage;

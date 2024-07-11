@@ -14,10 +14,10 @@ async function main() {
 		app.use(bodyParser.json())
 		app.use(bodyParser.urlencoded({ extended: true }));
 
-		const systemInstallRoutes  = require('./routes/systemInstallRoutes');
-		const locationsRoutes      = require('./routes/locationsRoutes'    );
-		const parkingRoutes        = require('./routes/parkingRoutes'      );
-		const parkingPackageRoutes = require('./routes/parkingPackage'     );
+		const systemInstallRoutes  = require('./routes/systemInstallRoutes'  );
+		const parkingRoutes        = require('./routes/parkingRoutes'        );
+		const locationsRoutes      = require('./routes/locationsRoutes'      );
+		const parkingPackageRoutes = require('./routes/parkingPackageRoutes' );
 		
 		app.use('/install'       , systemInstallRoutes );
 		app.use('/parking'       , parkingRoutes       );

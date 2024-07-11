@@ -9,7 +9,4 @@ router.put('/:id', parkingPackage.update);
 router.delete('/:id', parkingPackage.delete);
 
 
-
-
 module.exports = router;
-
