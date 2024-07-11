@@ -9,7 +9,7 @@ const ParkingSchema = new mongoose.Schema({
 	},
 	status: {
 		type: String,
-		enum: ['Active', 'Inactive'],
+		enum: ['Available', 'Inavailable'],
 		required: true,
 	},
 	packages: { type: String, required: true },

@@ -14,15 +14,18 @@ async function main() {
 		app.use(bodyParser.json())
 		app.use(bodyParser.urlencoded({ extended: true }));
 
-		const systemInstallRoutes  = require('./routes/systemInstallRoutes'  );
-		const parkingRoutes        = require('./routes/parkingRoutes'        );
-		const locationsRoutes      = require('./routes/locationsRoutes'      );
-		const parkingPackageRoutes = require('./routes/parkingPackageRoutes' );
+		const systemInstallRoutes  = require('./routes/systemInstallRoutes' );
+		const parkingRoutes        = require('./routes/parkingRoutes'       );
+		const locationsRoutes      = require('./routes/locationsRoutes'     );
+		const parkingPackageRoutes = require('./routes/parkingPackageRoutes');
+		const userRoutes           = require('./routes/userRoutes'          );
 		
-		app.use('/install'       , systemInstallRoutes );
-		app.use('/parking'       , parkingRoutes       );
-		app.use('/locations'     , locationsRoutes     );
-		app.use('/parkingPackage', parkingPackageRoutes);
+		app.use('/install'        , systemInstallRoutes  );
+		app.use('/parking'        , parkingRoutes        );
+		app.use('/locations'      , locationsRoutes      );
+		app.use('/parkingPackage' , parkingPackageRoutes );
+		app.use('/users'           , userRoutes           );
+
 
 		app.listen(port, () => {
 			console.log(`Parking system listening on port ${port}`);
