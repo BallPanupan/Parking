@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const ParkingPackageSchema = new mongoose.Schema({
 	name: { type: String, required: true, unique: true },
-	PricePerHour: { type: Number, required: true },
-	freeParking: { type: Number, required: true },
-	color: { type: String },
+	pricePerHour: { type: Number, required: true },
+	freeParkingMinute: { type: Number, required: true },
+	colorCode: { type: String },
 	createdAt: { type: String, default: Date.now },
 });
 

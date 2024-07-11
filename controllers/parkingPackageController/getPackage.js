@@ -5,7 +5,7 @@ async function _getPackage(req, res) {
 		const result = await ParkingPackage.find().lean();
 		res.json({
 			'status': true,
-			'data': [],
+			'data': result,
 		})
 	} catch (error) {
 		console.error('Error getPackage:', error);
