@@ -1,12 +1,17 @@
 const ParkingPackage = require("../../databaseModels/ParkingPackage");
 
-async function _getPackage(req, res) {
+async function _delete(req, res) {
 	try {
 
 		const id = req.params.id;
 		if (!id) throw new Error('Check params properties');
 
-		const result = await ParkingPackage.find({_id: id}).lean();
+		const result = await ParkingPackage.updateOne({_id: id},{
+			$set: {
+				"deleted": true
+			}
+		});
+
 		res.json({
 			'status': true,
 			'data': result || [],
@@ -21,5 +26,5 @@ async function _getPackage(req, res) {
 }
 
 module.exports = {
-	_getPackage,
+	_delete,
 };

@@ -1,15 +1,11 @@
 const ParkingPackage = require("../../databaseModels/ParkingPackage");
 
-async function _getPackage(req, res) {
+async function _listPackage(req, res) {
 	try {
-
-		const id = req.params.id;
-		if (!id) throw new Error('Check params properties');
-
-		const result = await ParkingPackage.find({_id: id}).lean();
+		const result = await ParkingPackage.find().lean();
 		res.json({
 			'status': true,
-			'data': result || [],
+			'data': result,
 		})
 	} catch (error) {
 		console.error('Error getPackage:', error);
@@ -21,5 +17,5 @@ async function _getPackage(req, res) {
 }
 
 module.exports = {
-	_getPackage,
+	_listPackage,
 };

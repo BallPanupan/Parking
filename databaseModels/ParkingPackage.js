@@ -6,6 +6,7 @@ const ParkingPackageSchema = new mongoose.Schema({
 	freeParkingMinute: { type: Number, required: true },
 	colorCode: { type: String },
 	createdAt: { type: String, default: Date.now },
+	deleted: { type: Boolean, default: false},
 });
 
 const ParkingPackage = mongoose.model('Parking', ParkingPackageSchema);
