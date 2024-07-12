@@ -29,7 +29,7 @@ for (let index = 0; index < userIds.length; index++) {
 	const raw = JSON.stringify({
 		"userId": userIds[index],
 		"parkingId": parking[index],
-		"action": "IN" // option IN and  OUT
+		"action": "OUT" // option IN and  OUT
 	});
 
 	const requestOptions = {
