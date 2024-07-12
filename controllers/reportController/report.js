@@ -14,7 +14,7 @@ async function _report(req, res) {
 		const rawData = await EventParking.find({
 			startTime: {
 				$gte: startDate,
-				$lte: endDate // Use endDate variable instead of Date.now()
+				$lte: endDate
 			},
 			$and: [
 				{ "action.in": { $exists: true } },
