@@ -7,7 +7,13 @@ const Users = require("../../databaseModels/Users");
 // action IN Helper
 async function actionInHelper(userId, parkingId) {
 	const userData = await Users.findById({ _id: userId }).lean();
-	const parkingData = await Parking.findById({ _id: parkingId }).lean();
+	const parkingData = await Parking.findById({ _id: String(parkingId) }).lean();
+
+
+	console.log('input', {userId, parkingId})
+	console.log('parkingData', parkingData)
+
+
 	const parkingPackageData = await ParkingPackage.findById({ _id: parkingData.packageId }).lean();
 
 	if(!parkingData || !parkingData) throw new Error(`can't find userId or parkingId`)
@@ -30,6 +36,8 @@ async function actionInHelper(userId, parkingId) {
 		"action.in": true,
 	}).lean();
 
+	
+	console.log(checking);
 
 	if(checking && checking.length > 0) {
 		return {
@@ -115,7 +123,7 @@ async function actionOutHelper(userId, parkingId) {
 		$set: {
 			'action.out': true,
 			endTime: endTime,
-			totaltimeUsingMinute: totaltimeUsingMinute,
+			totaltimeUsingMinute: totaltimeUsingMinute > 0 ? totaltimeUsingMinute : 0,
 			totalCost: totalCost > 0 ? totalCost : 0,
 		}
 	}

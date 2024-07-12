@@ -8,12 +8,12 @@ async function _create(req, res) {
 		const data = {
 			name: rawData.name,
 			location: {
-				building: rawData.location.building,
-				floor: rawData.location.floor,
-				zone: rawData.location.zone
+				buildingId: rawData.location.buildingId,
+				floorId: rawData.location.floorId,
+				zoneId: rawData.location.zoneId
 			},
-			status: rawData.status || 'Active',
-			packages: rawData.packages,
+			status: rawData.status || 'Available',
+			packageId: rawData.packageId,
 			exitNumber: rawData.exitNumber
 		};
 		const result = await Parking.create(data);

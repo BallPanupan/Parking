@@ -27,13 +27,15 @@ async function main() {
 		const parkingPackageRoutes = require('./routes/parkingPackageRoutes' );
 		const userRoutes           = require('./routes/userRoutes'           );
 		const eventParkingRoutes   = require('./routes/eventParkingRoutes'   );
-
-		app.use('/install'       , systemInstallRoutes );
-		app.use('/parking'       , parkingRoutes       );
-		app.use('/locations'     , locationsRoutes     );
-		app.use('/parkingPackage', parkingPackageRoutes);
-		app.use('/users'         , userRoutes          );
-		app.use('/eventParking'  , eventParkingRoutes  );
+		const reportRoutes         = require('./routes/reportRoutes'         );
+		
+		app.use('/install'        , systemInstallRoutes  );
+		app.use('/parking'        , parkingRoutes        );
+		app.use('/locations'      , locationsRoutes      );
+		app.use('/parkingPackage' , parkingPackageRoutes );
+		app.use('/users'          , userRoutes           );
+		app.use('/eventParking'   , eventParkingRoutes   );
+		app.use('/report'         , reportRoutes         );
 
 		app.listen(port, () => {
 			console.log(`Parking system listening on port ${port}`);
