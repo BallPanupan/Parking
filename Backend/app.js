@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/database');
 const port = process.env.SERVER_PORT || 3000;
@@ -9,11 +10,13 @@ async function main() {
 		// Verification database and install database
 		await connectDB();
 		const app = express();
+		app.use(cors());
 
 		const logUrlMiddleware = (req, res, next) => {
 			console.log(`${req.method}: ${req.url}`);
 			next();
 		};
+		
 		
 		app.use(logUrlMiddleware);
 
