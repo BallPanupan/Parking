@@ -24,3 +24,7 @@ $ docker run -d --name mongodb6 -p 27017:27017 mongo:6
 MONGODB_URI
 SERVER_PORT
 ```
+
+
+## DB Diagram
+![Parking System](https://raw.githubusercontent.com/BondPanupan/Parking/refs/heads/main/car-parking-diagram.png "Parking Database diagram")
