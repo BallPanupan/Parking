@@ -1,0 +1,22 @@
+/* Menu.module.css */
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.menu li:hover {
+  background-color: #ddd;
+}
+
+.select {
+  font-weight: bold;
+}
