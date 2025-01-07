@@ -1,0 +1,25 @@
+.locationControl {
+	width: 300px;
+	padding: 10px 8px 5px 6px;
+	border: 1px solid black;
+}
+
+.menu {
+	padding-left: 10px;
+}
+
+.list {
+	width: 300px;
+	min-height: 300px;
+	max-height: 300px;
+	overflow-y: scroll;
+	border: 1px solid black;
+}
+
+.locationControl li:hover {
+	background-color: #009eff4f;
+}
+
+.locationControl li {
+	cursor: pointer;
+}

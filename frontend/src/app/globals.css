@@ -2,3 +2,13 @@ a {
 	text-decoration: unset;
 	color: black;
 }
+
+.flex-justify-content {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+}
+
+.selected {
+	background-color: #009eff4f;
+}
