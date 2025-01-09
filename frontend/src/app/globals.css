@@ -9,6 +9,36 @@ a {
 	justify-content: center;
 }
 
+.flex-direction {
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-selected {
+	background-color: #009eff4f;
+}
+
 .selected {
 	background-color: #009eff4f;
+}
+
+.remove {
+  color: red; /* Dark text color for better readability */
+  font-weight: 500; /* Medium weight for a balanced look */
+  cursor: pointer; /* Pointer cursor for interactivity */
+
+  border-radius: 3px; /* Rounded corners for a sleek, modern look */
+  background-color: transparent; /* Transparent background */
+
+}
+
+.remove:hover {
+  color: white; /* Apple blue color for text on hover */
+	background-color: red;
+}
+
+.remove:active {
+  border-color: #ff0000bf; /* Blue border when clicked */
+  color: #005bb5; /* Darker blue color when clicked */
 }

@@ -5,7 +5,7 @@
 }
 
 .menu {
-	padding-left: 10px;
+	padding: 0px;
 }
 
 .list {
@@ -16,10 +16,28 @@
 	border: 1px solid black;
 }
 
-.locationControl li:hover {
+.locationControl ul {
+	list-style-type: none; /* Remove default markers */
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.locationControl ul li:first-child {
+	width: 100%;
+}
+
+.locationControl ul:hover {
 	background-color: #009eff4f;
 }
 
 .locationControl li {
+	padding: 3px 10px;
 	cursor: pointer;
 }
+
+
+
+
+
